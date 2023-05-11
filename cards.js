@@ -82,9 +82,10 @@ class Deck {
     return hands;
   }
 }
-const testDeck = new Deck();
-testDeck.generateCards();
-testDeck.shuffleCards();
+
+// const testDeck = new Deck();
+// testDeck.generateCards();
+// testDeck.shuffleCards();
 // console.log(testDeck.cards);
-const hands = testDeck.deal(3, 4);
-console.log(hands);
+// const hands = testDeck.deal(3, 4);
+// console.log(hands);
