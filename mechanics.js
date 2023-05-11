@@ -23,19 +23,13 @@ class Game {
         this.dealer = new Hand(newHands[1]);
     }
 
-    // playerTurn() {
-    //     let currentDraw = this.deck.deal(2, 1)[0]; //[[car, card]] -> [card, card]
-    //     for (let i = 0; i < 2; i++) {
-    //         this.player.addCard(currentDraw[i]);
-    //     }
-    // }
-
-    // dealerTurn() {
-    //     let currentDraw = this.deck.deal(2, 1)[0];
-    //     for (let i = 0; i < 2; i++) {
-    //         this.dealer.addCard(currentDraw[i]);
-    //     }        
-    // }
+    resolveTurn(hand) {
+        let currTotal = this.evaluateHand(hand);
+        while (currTotal < 14) {
+            hand.addCard(this.deck.draw());
+            currTotal = this.evaluateHand(hand);
+        }
+    }
 
     evaluateHand(hand) {
         // Add values of cards in hand.
@@ -64,6 +58,6 @@ class Game {
 }
 
 // const thisGame = newGame();
-// thisGame.playerTurn();
-// thisGame.dealerTurn();
+// thisGame.resolveTurn(thisGame.player)
+// thisGame.resolveTurn(thisGame.dealer)
 // thisGame.checkWin();
